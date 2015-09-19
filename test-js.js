@@ -4,13 +4,26 @@ function $Log(arg) {
   console.log("[" + timeArray.join("/") + "] " + arg);
 }
 
+function $Expand() {
+  var d = document.querySelectorAll(".lp");
+  if(typeof d === "undefined") {
+    return(null);
+  } else {
+    for(i = 0; i<d.length; i++) {
+      loadFile(d[i].dataset.raw, t, d[i]);
+      d[i].classList.remove("lp");
+      $Log("fin");
+    }
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   $Log("App start");
   init();
 }, false);
 
-html = document.getElementsByClassName("html")[0];
-html.addEventListener("DOMSubtreeModified propertychange", function() {
+html = document.querySelector("html");
+html.addEventListener("DOMSubtreeModified", function() {
   init();
 }, false);
 
@@ -22,10 +35,8 @@ function t(string, d) {
 }
 
 function init() {
-  // var j = 0;
-// while(j == 0) {
   var d = document.querySelectorAll(".lp");
-  if(d === undefined) {
+  if(typeof d === "undefined") {
     return(null);
   } else {
     for(i = 0; i<d.length; i++) {
@@ -34,18 +45,12 @@ function init() {
       $Log("fin");
     }
   }
-  // if(d === undefined) {
-    // j = 1;
-  // }
-// }
 }
 
 function template(tmpl, args) {
   var i = -1;
   return(tmpl.replace(/..arg../g, function() {return(args[i++]);}));
 }
-
-/***LAB***/
 
 function loadFile(filename, callback, d) {
   var xhr = new XMLHttpRequest();
