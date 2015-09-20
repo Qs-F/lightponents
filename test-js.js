@@ -4,6 +4,8 @@ function $Log(arg) {
   console.log("[" + timeArray.join("/") + "] " + arg);
 }
 
+var x = [];
+
 function $Expand() {
   var d = document.querySelectorAll(".lp");
   if(typeof d === "undefined") {
@@ -17,7 +19,7 @@ function $Expand() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
   $Log("App start");
   init();
 }, false);
@@ -28,11 +30,8 @@ html.addEventListener("DOMSubtreeModified", function() {
 }, false);
 
 function t(string, d) {
-  $Log(string);
   var doc = d;
-  $Log(template(string, ["Hello!", "point of"]));
-  $Log("IJIIIIII " + d.dataset["raw"]);
-  replacedTmpl = template(string, {"title":"Hello!", "article":"ArticleTitle", "$1":"und"});
+  replacedTmpl = template(string, $docs);
   d.innerHTML = replacedTmpl;
 }
 
@@ -47,12 +46,15 @@ function init() {
       $Log("fin");
     }
   }
+  for(j = 0; j < x.length; j++) {
+    x[j]();
+  }
 }
 
 function c(e, args) {return(args[e]);}
 
 function template(tmpl, args) {
-  return(tmpl.replace(/\.\.([\S]*)\.\./g, function() {return(args[RegExp.$1]);}));
+  return(tmpl.replace(/\.\.(.*?)\.\./g, function() {return(args[RegExp.$1]);}));
 }
 
 function loadFile(filename, callback, d) {
