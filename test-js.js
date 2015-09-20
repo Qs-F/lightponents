@@ -29,9 +29,11 @@ html.addEventListener("DOMSubtreeModified", function() {
 
 function t(string, d) {
   $Log(string);
+  var doc = d;
   $Log(template(string, ["Hello!", "point of"]));
-  $Log(d);
-  d.innerHTML = template(string, ["Hello!", "ArticleTitle"]);
+  $Log("IJIIIIII " + d.dataset["raw"]);
+  replacedTmpl = template(string, {"title":"Hello!", "article":"ArticleTitle", "$1":"und"});
+  d.innerHTML = replacedTmpl;
 }
 
 function init() {
@@ -47,14 +49,15 @@ function init() {
   }
 }
 
+function c(e, args) {return(args[e]);}
+
 function template(tmpl, args) {
-  var i = -1;
-  return(tmpl.replace(/..arg../g, function() {return(args[i++]);}));
+  return(tmpl.replace(/\.\.([\S]*)\.\./g, function() {return(args[RegExp.$1]);}));
 }
 
 function loadFile(filename, callback, d) {
   var xhr = new XMLHttpRequest();
-  callback("loading...", d);
+  callback("", d);
   xhr.addEventListener('loadend', function(){
     if(xhr.status === 200){
       $Log("callback:" + d);
