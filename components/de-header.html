@@ -1,0 +1,40 @@
+<style>
+  header {
+    position: fixed;
+    text-align: center;
+    top: 16px;
+    box-sizing: border-box;
+    left: 16px;
+    background: rgba(0,0,0,.91);
+    color: rgb(255,255,255);
+    padding: 8px 16px;
+    line-height: 1px;
+    cursor: pointer;
+  }
+  
+  header:hover {
+    top: 0;
+    left: 0;
+    padding: 24px 32px;
+  }
+  
+  header.clicked {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  h1 {
+    font-family: 'Cantarell', 'Roboto', 'GenWeb', sans-serif;
+  }
+</style>
+<link href='https://fonts.googleapis.com/css?family=Cantarell:400' rel='stylesheet' type='text/css'>
+<h1 class="webType4">..title..</h1>
+<script>
+  // document.addEventListener("DOMContentCreated", function() {
+    g = document.querySelector("header");
+    g.addEventListener("click", function() {
+      g.classList.toggle("clicked");
+      console.log("click");
+    }, false);
+  // }, false);
+</script>
