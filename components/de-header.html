@@ -1,7 +1,7 @@
 <style>
   header {
     position: fixed;
-    text-align: center;
+    /*text-align: center;*/
     top: 16px;
     box-sizing: border-box;
     left: 16px;
@@ -10,31 +10,88 @@
     padding: 8px 16px;
     line-height: 1px;
     cursor: pointer;
+    transition: .32s;
   }
   
   header:hover {
+    background: rgb(0,150,80);
     top: 0;
     left: 0;
     padding: 24px 32px;
+    transition: .32s;
   }
   
   header.clicked {
+    background: rgb(0,150,80);
     width: 100vw;
-    height: 100vh;
+    /*height: 100vh;*/
+    padding: 24px 32px;
+    top: 0;
+    left: 0;
+    transition: .32s;
   }
   
-  h1 {
+  header h1 {
     font-family: 'Cantarell', 'Roboto', 'GenWeb', sans-serif;
   }
+  
+  header h1:after {
+    content: ">";
+    margin-left: 16px;
+  }
+  
+  header.clicked h1:after {
+    content: "<";
+  }
+  
+  .nav {
+    color: rgb(0,0,0);
+    position: fixed;
+    top: 88px;
+    left: 0;
+    transition: .32s;
+    display: block;
+    line-height: 1em;
+    background: rgba(245,245,245,.9);
+    width: 100%;
+    padding: 16px;
+    border-bottom: rgb(0,150,80) solid 2px;
+  }
+  
+  .nav ul {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav ul li {
+    display: inline;
+    float: left;
+    padding: 16px;
+    border-right: rgb(0,150,80) solid 2px;
+    border-bottom: rgb(0,150,80) solid 0px;
+    list-style-type: none;
+    transition: .32s;
+  }
+  
+  .nav ul li:hover {
+    padding-bottom: 8px;
+    border-bottom: rgb(0,150,80) solid 8px;
+  }
+  
+  .nav nav {
+    height: auto;
+  }
+  
+  .hidden {
+    position: fixed;
+    top: 88px;
+    left: -100vw;
+  }
+
 </style>
 <link href='https://fonts.googleapis.com/css?family=Cantarell:400' rel='stylesheet' type='text/css'>
 <h1 class="webType4">..title..</h1>
-<script>
-  // document.addEventListener("DOMContentCreated", function() {
-    g = document.querySelector("header");
-    g.addEventListener("click", function() {
-      g.classList.toggle("clicked");
-      console.log("click");
-    }, false);
-  // }, false);
-</script>
+<div class="hidden nav">
+  ..nav..
+</div>

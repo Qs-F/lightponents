@@ -1,7 +1,7 @@
 <style>
   article {
     max-width: 640px;
-    /*padding: 16px;*/
+    padding: 16px;
     margin: 64px auto;
     /*background: rgb(245,245,245);*/
     color: rgb(100,100,100);
@@ -17,7 +17,149 @@
   
   article h3 {
     font-weight: 300;
-  } 
+  }
+
+  *:focus {
+    outline: none;
+  }
+  
+  ol,ul,li {
+    list-style-type: none;
+  }
+  
+  ol li {
+    color: #009650;
+    list-style-type: decimal;
+  }
+  
+  ul li {
+    color: #009650;
+    list-style-type: circle;
+  }
+  
+  br.s {
+    display: none;
+  }
+  
+  @media screen and (max-width: 480px) {
+    br.s {
+      display:inline;
+    }
+  }
+  
+  * {
+    word-break: break-all;
+    box-sizing: border-box;
+    transition-timing-function: cubic-bezierr(.55,0,.1,1);
+  }
+  
+  h1,h2,h3,h4,h5,h6,p,span,strong,a {
+    margin: 0;
+    padding: 0;
+    line-height: 2em;
+    letter-spacing: .07em;
+    font-size: inherit;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  p,span,strong,a {
+    line-height: inherit;
+  }
+  
+  h2 {
+    font-size: 32px;
+    line-height: 1em;
+    margin: 32px 0 16px 0;
+  }
+  
+  h3 {
+    font-size: 24px;
+    line-height: calc(1em + 1em / 3);
+    margin-top: 16px;
+  }
+  
+  p {
+    margin-top: 16px;
+  }
+  
+  article h1:before {
+    content: "TITLE";
+    font-size: 12px;
+    letter-spacing: .8em;
+    display: block;
+    width: 100%;
+    font-weight: bold
+  }
+  
+  article h1 {
+    width: 100%;
+    line-height: 1em;
+    font-size: 32px;
+  }
+  
+  article h1:after {
+    border-top: rgb(0,0,0) solid 2px;
+    margin: 16px 0 8px 0;
+    content: "ARTICLE";
+    font-size: 12px;
+    letter-spacing: .8em;
+    display: block;
+    font-weight: bold;
+    width: 100%;
+  }
+  
+  article h2 {
+    margin: 0;
+    font-weight: 100;
+  }
+  
+  article a {
+    color: #009650;
+    margin: 0 8px;
+    text-decoration: underline;
+  }
+  
+  article strong {
+    background: linear-gradient(transparent 70%, rgba(0,150,80,.5) 0%);
+    color: rgb(50,50,50);
+  }
+  
+  article pre {
+    background: rgba(0,150,80,.1);
+    border: #009650 solid 1px;
+    border-radius: 2px;
+    padding: 16px;
+    max-width: calc(100vw - 32px);
+    overflow: scroll;
+  }
+  
+  article .date {
+    font-size: 12px;
+    letter-spacing: .5em;
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    color: #009650;
+  }
+  
+  code {
+    color: #009650;
+    border: 1px #009650 solid;
+    border-radius: 2px;
+    padding: 0 8px;
+    margin: 0 8px;
+    background: rgba(0,150,80,.1);
+  }
+  
+  article pre code {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    color: #323232;
+  }
 </style>
 <div class="article webType3">
   ..article..

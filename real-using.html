@@ -6,15 +6,18 @@
         $docs = {
           "title":"de-liKeR",
           "article":document.querySelector("article").innerHTML,
+          "nav":document.querySelector("header").innerHTML,
         }
       }, false);
     </script>
     <script src="test-js.js"></script>
+    <script src="components/header.js"></script>
     <style>
       html, body {
         padding: 0;
         margin: 0;
         background-color: rgb(245,245,245);
+        -webkit-font-smoothing: antialiased;
       }
       
       * {
@@ -26,13 +29,19 @@
       }
     </style>
     <link rel="stylesheet" href="//queensya-design.appspot.com/typography-2.0.0.css">
-    <link rel="stylesheet" href="//v2.de-liker.com/box-design/css/box.css">
+    <!--<link rel="stylesheet" href="//v2.de-liker.com/box-design/css/box.css">-->
   </head>
   <body>
     <header class="lp" data-raw="components/de-header.html">
+      <nav>
+        <ul>
+          <li><a href="/">トップへ</a></li>
+           <li><a href="hogehoge">このブログについて</a></li>
+           <li><a href="author">書き手について</a></li>
+        </ul>
+      </nav>
     </header>
     <article class="lp" data-raw="components/de-article.html">
-      <box-text>
       <p class="date">2015/08/23 20:22</p>
       <h1>デザイン考察、論理性</h1>
 
@@ -242,7 +251,6 @@ Googleではandroid5.0と合わせてそのボタンをmaterial designで採用�
 <p>それでは。</p>
 
 <p>おわり</p>
-</box-text>
     </article>
     <footer class="lp" data-raw="components/de-footer.html">
     </footer>
