@@ -6,21 +6,7 @@ function $Log(arg) {
 
 var x = [];
 
-function $Expand() {
-  var d = document.querySelectorAll(".lp");
-  if(typeof d === "undefined") {
-    return(null);
-  } else {
-    for(i = 0; i<d.length; i++) {
-      loadFile(d[i].dataset.raw, t, d[i]);
-      d[i].classList.remove("lp");
-      $Log("fin");
-    }
-  }
-}
-
 window.addEventListener("load", function() {
-  $Log("App start");
   init();
 }, false);
 
@@ -43,15 +29,11 @@ function init() {
     for(i = 0; i<d.length; i++) {
       loadFile(d[i].dataset.raw, t, d[i]);
       d[i].classList.remove("lp");
-      $Log("fin");
     }
   }
   for(j = 0; j < x.length; j++) {
     x[j]();
-  }
-}
-
-function c(e, args) {return(args[e]);}
+  }}
 
 function template(tmpl, args) {
   return(tmpl.replace(/\.\.(.*?)\.\./g, function() {return(args[RegExp.$1]);}));
@@ -60,16 +42,14 @@ function template(tmpl, args) {
 function loadFile(filename, callback, d) {
   var xhr = new XMLHttpRequest();
   callback("", d);
-  xhr.addEventListener('loadend', function(){
-    if(xhr.status === 200){
-      $Log("callback:" + d);
+  xhr.addEventListener('loadend', function() {
+    if(xhr.status === 200) {
       callback(xhr.responseText, d);
-    }else{
-      $Log("callback:" + d);
+    } else {
       callback("", d);
       console.error(xhr.status+' '+xhr.statusText);
     }
-  });
+  }, false);
   xhr.open('GET', filename+"?"+(new Date()).getTime(), true);
   xhr.send();
 }
