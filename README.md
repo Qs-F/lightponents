@@ -1,6 +1,6 @@
 # lightponents
 
-## This is a light way of web components.
+## This is a light way of building site.
 
 ### Usage
 
