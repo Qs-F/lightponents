@@ -1,9 +1,3 @@
-function $Log(arg) {
-  var t = new Date();
-  var timeArray = [t.getFullYear(), t.getMonth() + 1, t.getDate(), t.getHours(), t.getMinutes(), t.getSeconds()];
-  console.log("[" + timeArray.join("/") + "] " + arg);
-}
-
 var x = [];
 
 window.addEventListener("load", function() {
@@ -14,6 +8,14 @@ html = document.querySelector("html");
 html.addEventListener("DOMSubtreeModified", function() {
   init();
 }, false);
+
+document.addEventListeiner("DOMContentLoaded", $values(), false);
+
+function $Log(arg) {
+  var t = new Date();
+  var timeArray = [t.getFullYear(), t.getMonth() + 1, t.getDate(), t.getHours(), t.getMinutes(), t.getSeconds()];
+  console.log("[" + timeArray.join("/") + "] " + arg);
+}
 
 function t(string, d) {
   var doc = d;
@@ -33,7 +35,8 @@ function init() {
   }
   for(j = 0; j < x.length; j++) {
     x[j]();
-  }}
+  }
+}
 
 function template(tmpl, args) {
   return(tmpl.replace(/\.\.(.*?)\.\./g, function() {return(args[RegExp.$1]);}));
