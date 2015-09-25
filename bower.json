@@ -1,0 +1,21 @@
+{
+  "name": "lightponents",
+  "main": "lightponents.js",
+  "version": "0.0.1",
+  "authors": [
+    "Qs-F <qsf@mail.queensya.com>"
+  ],
+  "description": "light way of web building",
+  "keywords": [
+    "lightponents"
+  ],
+  "license": "MIT",
+  "homepage": "v2.de-liker.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
